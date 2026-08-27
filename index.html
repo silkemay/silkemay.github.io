@@ -1,50 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TooLove – Airbrush Art & Stencil Tools by Silke May</title>
+<title>TooLove – Airbrush Art, Stencil Art, BirdieMan & Creative Tools by Silke May</title>
 
-<meta name="description" content="TooLove presents airbrush art and stencil tools by Silke May. Create cuttable stencil SVGs with automatic slots from images and text for plotters, airbrush, spray art and graphic stencil workflows.">
+<meta name="description" content="TooLove is the art and creative tools project of Berlin artist Silke May. Explore airbrush and stencil art, the original BirdieMan character and experimental film, plus macOS and iOS tools for stencil design and video workflows.">
 
 <meta name="keywords" content="
 airbrush art,
+airbrush artist,
+airbrush painting,
 stencil art,
-svg stencil creator,
-cuttable stencil svg,
+stencil artist,
+spray art,
+acrylic art,
+Silke May,
+TooLove,
+BirdieMan,
+original character,
+character design,
+experimental film,
+AI animation,
+AI generated video,
+video sequence tool,
+macOS video tool,
+frame precise video trimming,
+video sequence assembly,
+PaneLove,
+stencil software,
+SVG stencil creator,
+cuttable stencil SVG,
 automatic stencil slots,
 plotter stencil,
-spray paint stencil,
 multi layer stencil,
 graphic stencil software,
 stencil generator,
 airbrush stencil tool,
 text stencil creator,
-stencil svg export,
 macOS stencil app,
-Intel Mac stencil app,
-Apple Silicon stencil app,
-M1 stencil app,
-M2 stencil app,
 iOS stencil app,
-App Store stencil app,
-Silke May,
-TooLove,
 LabeLove,
 SobeLover,
+StenciLover,
 StenciLove,
 ChromaLove
 ">
 
-<meta property="og:title" content="TooLove – Airbrush Art & Stencil Tools">
-<meta property="og:description" content="Airbrush art and stencil tools by Silke May. Create cuttable stencil SVGs with automatic slots for plotters, spray art and graphic workflows.">
+<meta property="og:title" content="TooLove – Art · Experiments · Tools">
+<meta property="og:description" content="Airbrush and stencil art, BirdieMan, experimental moving images and creative tools by Berlin artist Silke May.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="PreviewImage.png">
 
+
 <style>
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Chicago, Arial, sans-serif;
+
     background:
         radial-gradient(circle at 12% 18%, rgba(0,0,0,0.09), transparent 18%),
         radial-gradient(circle at 82% 12%, rgba(255,255,255,0.32), transparent 22%),
@@ -53,50 +76,155 @@ body {
         repeating-linear-gradient(45deg, rgba(0,0,0,0.018) 1px, transparent 8px),
         linear-gradient(180deg, rgba(255,255,255,0.12), rgba(0,0,0,0.035)),
         #d6d0c4;
+
     margin: 0;
     text-align: center;
+    color: #181818;
 }
 
 .container {
     max-width: 1080px;
     margin: auto;
-    padding: 28px 20px;
+    padding: 28px 20px 50px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navigation {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(242, 239, 232, 0.94);
+    border-bottom: 1px solid #777;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.14);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.navigation-inner {
+    max-width: 1080px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 11px 20px;
+}
+
+.nav-logo {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    color: black;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 26px;
+}
+
+.nav-links a {
+    color: #222;
+    text-decoration: none;
+    font-size: 14px;
+    transition: transform 0.25s ease;
+}
+
+.nav-links a:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.hero {
+    padding: 55px 10px 25px;
 }
 
 h1 {
     font-family: Georgia, serif;
-    font-size: 48px;
+    font-size: 52px;
     font-weight: normal;
+    margin: 0 0 10px;
 }
 
-.subtitle { font-size: 18px; }
-.artist { font-size: 15px; margin-top: 6px; }
+.subtitle {
+    font-size: 19px;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.artist {
+    font-size: 15px;
+    margin-top: 8px;
+}
 
 .intro {
     max-width: 720px;
-    margin: 28px auto 38px;
-    line-height: 1.6;
-    font-size: 15px;
+    margin: 32px auto 20px;
+    line-height: 1.7;
+    font-size: 16px;
 }
+
+
+/* =========================================================
+   GENERAL SECTIONS
+   ========================================================= */
 
 .section {
     border: 1px solid #555;
     background: #f2efe8;
-    padding: 28px;
-    margin: 36px 0;
-    box-shadow: 3px 3px 0 #9c968c, 8px 8px 18px rgba(0,0,0,0.2);
+
+    padding: 32px 28px;
+    margin: 44px 0;
+
+    box-shadow:
+        3px 3px 0 #9c968c,
+        8px 8px 18px rgba(0,0,0,0.2);
+
+    scroll-margin-top: 80px;
 }
 
 h2 {
     font-family: Georgia, serif;
     font-weight: normal;
+    font-size: 31px;
+    margin-top: 0;
 }
+
+h3 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 22px;
+}
+
+.section-intro {
+    max-width: 760px;
+    margin: 0 auto 30px;
+    line-height: 1.65;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   AIRBRUSH GALLERY
+   ========================================================= */
 
 .gallery-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 42px;
     justify-content: center;
+    align-items: flex-start;
 }
 
 .gallery-item {
@@ -106,14 +234,24 @@ h2 {
 .gallery-item img {
     width: 100%;
     height: auto;
+
     border: 1px solid #888;
     background: #eee9df;
     padding: 8px;
+
+    box-sizing: border-box;
+
     box-shadow:
         0 12px 22px rgba(0,0,0,0.35),
         3px 3px 0 #aaa;
-    transition: transform 0.8s ease, box-shadow 0.8s ease;
+
+    transition:
+        transform 0.8s ease,
+        box-shadow 0.8s ease;
 }
+
+
+/* deliberately irregular gallery */
 
 .gallery-item:nth-child(1) img {
     transform: rotate(-1.2deg);
@@ -132,15 +270,32 @@ h2 {
 }
 
 .gallery-item:nth-child(5) img {
-    transform: rotate(-0.4deg);
+    transform: rotate(-1deg);
 }
 
 .gallery-item:nth-child(6) img {
-    transform: rotate(-0.4deg);
+    transform: rotate(0.5deg);
+}
+
+.gallery-item:nth-child(7) img {
+    transform: rotate(1.3deg);
+}
+
+.gallery-item:nth-child(8) img {
+    transform: rotate(-0.8deg);
+}
+
+.gallery-item:nth-child(9) img {
+    transform: rotate(0.7deg);
+}
+
+.gallery-item:nth-child(10) img {
+    transform: rotate(-1.1deg);
 }
 
 .gallery-item:hover img {
     transform: rotate(0deg) translateY(-10px) scale(1.04);
+
     box-shadow:
         0 18px 30px rgba(0,0,0,0.42),
         4px 4px 0 #aaa;
@@ -149,12 +304,19 @@ h2 {
 .caption-card {
     background: #fdfcf8;
     border: 1px solid #cfc7bb;
+
     padding: 10px 12px;
     margin-top: 12px;
+
     box-shadow:
         2px 2px 0 #b8b0a4,
         6px 6px 12px rgba(0,0,0,0.18);
+
     transform: rotate(-0.5deg);
+}
+
+.gallery-item:nth-child(even) .caption-card {
+    transform: rotate(0.4deg);
 }
 
 .caption-title {
@@ -166,6 +328,87 @@ h2 {
 .caption-meta {
     font-size: 12px;
     color: #555;
+    margin-top: 3px;
+}
+
+.art-text {
+    max-width: 720px;
+    margin: 38px auto 5px;
+    line-height: 1.65;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   BIRDIEMAN
+   ========================================================= */
+
+.birdieman-section {
+    padding-top: 38px;
+    padding-bottom: 40px;
+}
+
+.project-kicker {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.birdieman-text {
+    max-width: 720px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.video-card {
+    max-width: 850px;
+    margin: 28px auto 15px;
+
+    padding: 10px;
+
+    background: #e9e3d8;
+    border: 1px solid #8f8a80;
+
+    box-shadow:
+        3px 3px 0 #b4aea4,
+        8px 8px 18px rgba(0,0,0,0.22);
+
+    transform: rotate(-0.25deg);
+}
+
+.video-card video {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #111;
+}
+
+.video-meta {
+    font-size: 12px;
+    color: #555;
+    margin-top: 14px;
+}
+
+
+/* =========================================================
+   TOOLS
+   ========================================================= */
+
+.tools-intro {
+    max-width: 720px;
+    margin: 0 auto 35px;
+    line-height: 1.65;
+    font-size: 15px;
+}
+
+.tool-divider {
+    width: 70%;
+    height: 1px;
+    background: #bbb4a9;
+    margin: 45px auto;
 }
 
 .app-image-row {
@@ -173,29 +416,49 @@ h2 {
     flex-wrap: wrap;
     gap: 18px;
     justify-content: center;
+    align-items: flex-start;
 }
 
 .app-image-card {
     background: #e9e3d8;
     border: 1px solid #8f8a80;
+
     padding: 10px;
     max-width: 300px;
+
     box-shadow:
         2px 2px 0 #b4aea4,
         6px 6px 12px rgba(0,0,0,0.16);
-    transition: transform 0.8s ease, box-shadow 0.8s ease;
+
+    transition:
+        transform 0.8s ease,
+        box-shadow 0.8s ease;
+}
+
+.app-image-card:nth-child(odd) {
+    transform: rotate(-0.35deg);
+}
+
+.app-image-card:nth-child(even) {
+    transform: rotate(0.35deg);
 }
 
 .app-image-card:hover {
-    transform: translateY(-8px) scale(1.03);
+    transform: rotate(0deg) translateY(-8px) scale(1.03);
+
     box-shadow:
         0 14px 24px rgba(0,0,0,0.30),
         3px 3px 0 #b4aea4;
 }
 
 .app-image-card img {
+    display: block;
     max-width: 100%;
     height: auto;
+}
+
+.panelove-card {
+    max-width: 440px;
 }
 
 .ios-card {
@@ -204,25 +467,37 @@ h2 {
 
 .image-label {
     font-size: 12px;
-    margin-top: 6px;
+    margin-top: 7px;
 }
 
 .app-text {
     max-width: 700px;
-    margin: 20px auto 10px;
-    line-height: 1.55;
+    margin: 22px auto 10px;
+    line-height: 1.6;
     font-size: 15px;
+}
+
+.tech-meta {
+    font-size: 12px;
+    color: #555;
+    margin: 13px auto 5px;
 }
 
 .button {
     display: inline-block;
+
     margin-top: 14px;
     padding: 10px 22px;
+
     border: 2px solid black;
     background: #d8d3c8;
+
     text-decoration: none;
     color: black;
-    transition: transform 0.4s ease, background 0.4s ease;
+
+    transition:
+        transform 0.4s ease,
+        background 0.4s ease;
 }
 
 .button:hover {
@@ -230,8 +505,25 @@ h2 {
     background: #ebe6dc;
 }
 
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-text {
+    max-width: 720px;
+    margin: auto;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
 .footer {
-    margin: 40px 0;
+    margin: 48px 0 25px;
     font-size: 13px;
     line-height: 1.6;
 }
@@ -243,295 +535,851 @@ h2 {
 
 .impressum-box {
     display: none;
+
     margin-top: 20px;
     padding: 18px;
+
     background: #f4f1ea;
     border: 1px solid #b8b0a4;
+
     max-width: 420px;
     margin-left: auto;
     margin-right: auto;
+
     box-shadow:
         2px 2px 0 #b8b0a4,
         6px 6px 12px rgba(0,0,0,0.14);
 }
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 720px) {
+
+    .navigation-inner {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .hero {
+        padding-top: 38px;
+    }
+
+    .section {
+        padding: 25px 16px;
+        margin: 32px 0;
+    }
+
+    .gallery-row {
+        gap: 34px;
+    }
+
+    .gallery-item {
+        width: min(280px, 90%);
+    }
+
+    .panelove-card {
+        max-width: 92%;
+    }
+
+    .video-card {
+        padding: 7px;
+    }
+}
+
 </style>
 </head>
 
+
 <body>
-<div class="container">
 
-<section style="display:none;">
-TooLove is a digital and analog stencil art project by Silke May.
 
-Topics:
-- Airbrush art
-- Spray paint art
-- SVG stencil generation
-- Automatic stencil slots
-- Cuttable stencil design
-- Plotter workflows
-- Graphic edge reduction
-- Multi-layer stencil creation
-- Text stencil generation
-- Color based stencil tools
-- macOS creative tools
-- Intel Mac applications
-- Apple Silicon applications
-- M1 and M2 compatible software
-- iOS stencil applications
-- App Store creative tools
-- Analog and digital mixed media art
-- ChromaLove iOS app
-</section>
+<!-- ======================================================
+     NAVIGATION
+     ====================================================== -->
 
-<h1>TooLove</h1>
-<p class="subtitle">Airbrush Art & Stencil Tools</p>
-<p class="artist">by Silke May</p>
+<nav class="navigation">
 
-<p class="intro">
-TooLove combines analog airbrush art with small digital stencil tools.
-The tools create cuttable stencil SVGs with automatic slots from images and text for plotters,
-airbrush, spray art and graphic stencil workflows.
-The macOS applications support both Intel Macs and Apple Silicon systems.
-The iOS versions are available on the Apple App Store.
+    <div class="navigation-inner">
+
+        <a class="nav-logo" href="#top">TooLove</a>
+
+        <div class="nav-links">
+            <a href="#art">Art</a>
+            <a href="#birdieman">BirdieMan</a>
+            <a href="#tools">Tools</a>
+            <a href="#about">About</a>
+        </div>
+
+    </div>
+
+</nav>
+
+
+<div class="container" id="top">
+
+
+<!-- ======================================================
+     HERO
+     ====================================================== -->
+
+<header class="hero">
+
+    <h1>TooLove</h1>
+
+    <p class="subtitle">
+        Art · Experiments · Tools
+    </p>
+
+    <p class="artist">
+        by Silke May
+    </p>
+
+    <p class="intro">
+        TooLove is first and foremost about making art.
+        Sometimes the tools I need don't exist – so I build them myself.
+        What begins with airbrush and stencil work can lead to software,
+        moving images, or an entirely new character.
+    </p>
+
+</header>
+
+
+<!-- ======================================================
+     AIRBRUSH ART
+     ====================================================== -->
+
+<section class="section" id="art">
+
+<h2>Airbrush Art</h2>
+
+<p class="section-intro">
+    Original airbrush and stencil artwork combining acrylic paint,
+    hand-made and digitally prepared stencils, graphic reduction,
+    layered surfaces and spray techniques.
 </p>
 
-<div class="section">
-<h2>Airbrush Art</h2>
 
 <div class="gallery-row">
 
-<div class="gallery-item">
-<img src="Punkbrush.png" alt="Punkbrush airbrush artwork by Silke May">
-<div class="caption-card">
-<div class="caption-title">„Punkbrush“</div>
-<div class="caption-meta">AcrylTex / Airbrush, 2026</div>
-</div>
+
+    <div class="gallery-item">
+
+        <img
+            src="Punkbrush.png"
+            alt="Punkbrush original airbrush and stencil artwork by Silke May"
+            loading="lazy"
+        >
+
+        <div class="caption-card">
+            <div class="caption-title">„Punkbrush“</div>
+            <div class="caption-meta">AcrylTex / Airbrush, 2026</div>
+        </div>
+
+    </div>
+
+
+    <div class="gallery-item">
+
+        <img
+            src="Golf.png"
+            alt="Golf original acrylic airbrush artwork by Silke May"
+            loading="lazy"
+        >
+
+        <div class="caption-card">
+            <div class="caption-title">„Golf“</div>
+            <div class="caption-meta">Acryl / Airbrush, 2023</div>
+        </div>
+
+    </div>
+
+
+    <div class="gallery-item">
+
+        <img
+            src="E.png"
+            alt="E original acrylic airbrush and stencil artwork by Silke May"
+            loading="lazy"
+        >
+
+        <div class="caption-card">
+            <div class="caption-title">„E“</div>
+            <div class="caption-meta">Acryl / Airbrush, 2025</div>
+        </div>
+
+    </div>
+
+
+    <div class="gallery-item">
+
+        <img
+            src="Foxi.png"
+            alt="Foxi original acrylic airbrush artwork by Silke May"
+            loading="lazy"
+        >
+
+        <div class="caption-card">
+            <div class="caption-title">„Foxi“</div>
+            <div class="caption-meta">Acryl / Airbrush, 2024</div>
+        </div>
+
+    </div>
+
+
+    <div class="gallery-item">
+
+        <img
+            src="BirdieMan.png"
+            alt="BirdieMan original character airbrush artwork by Silke May"
+            loading="lazy"
+        >
+
+        <div class="caption-card">
+            <div class="caption-title">„BirdieMan“</div>
+            <div class="caption-meta">Acryl / Airbrush, 2026</div>
+        </div>
+
+    </div>
+
+
+    <div class="gallery-item">
+
+        <img
+            src="Chain.png"
+            alt="Chain original acrylic airbrush artwork by Silke May"
+            loading="lazy"
+        >
+
+        <div class="caption-card">
+            <div class="caption-title">„Chain“</div>
+            <div class="caption-meta">Acryl / Airbrush, 2024</div>
+        </div>
+
+    </div>
+
+
+    <!-- NEW ARTWORK -->
+
+
+    <div class="gallery-item">
+
+        <img
+            src="Me.jpeg"
+            alt="Me original monochrome airbrush and stencil artwork by Silke May"
+            loading="lazy"
+        >
+
+        <div class="caption-card">
+            <div class="caption-title">„Me“</div>
+            <div class="caption-meta">Airbrush, 2024</div>
+        </div>
+
+    </div>
+
+
+    <div class="gallery-item">
+
+        <img
+            src="Packan.jpeg"
+            alt="Packan original blue airbrush and stencil artwork by Silke May"
+            loading="lazy"
+        >
+
+        <div class="caption-card">
+            <div class="caption-title">„Packan“</div>
+            <div class="caption-meta">Airbrush, 2025</div>
+        </div>
+
+    </div>
+
+
+    <div class="gallery-item">
+
+        <img
+            src="Debris.jpeg"
+            alt="Debris original layered airbrush and stencil artwork by Silke May"
+            loading="lazy"
+        >
+
+        <div class="caption-card">
+            <div class="caption-title">„Debris“</div>
+            <div class="caption-meta">Airbrush, 2024</div>
+        </div>
+
+    </div>
+
+
+    <div class="gallery-item">
+
+        <img
+            src="Pride.jpeg"
+            alt="Pride original colorful airbrush and stencil artwork by Silke May"
+            loading="lazy"
+        >
+
+        <div class="caption-card">
+            <div class="caption-title">„Pride“</div>
+            <div class="caption-meta">Airbrush, 2023</div>
+        </div>
+
+    </div>
+
+
 </div>
 
-<div class="gallery-item">
-<img src="Golf.png" alt="Golf airbrush artwork by Silke May">
-<div class="caption-card">
-<div class="caption-title">„Golf“</div>
-<div class="caption-meta">Acryl / Airbrush, 2023</div>
-</div>
-</div>
 
-<div class="gallery-item">
-<img src="E.png" alt="E airbrush artwork by Silke May">
-<div class="caption-card">
-<div class="caption-title">„E“</div>
-<div class="caption-meta">Acryl / Airbrush, 2025</div>
-</div>
-</div>
-
-<div class="gallery-item">
-<img src="Foxi.png" alt="Foxi airbrush artwork by Silke May">
-<div class="caption-card">
-<div class="caption-title">„Foxi“</div>
-<div class="caption-meta">Acryl / Airbrush, 2024</div>
-</div>
-</div>
-
-<div class="gallery-item">
-<img src="BirdieMan.png" alt="BirdieMan airbrush artwork by Silke May">
-<div class="caption-card">
-<div class="caption-title">„BirdieMan“</div>
-<div class="caption-meta">Acryl / Airbrush, 2026</div>
-</div>
-</div>
-
-<div class="gallery-item">
-<img src="Chain.png" alt="Chain airbrush artwork by Silke May">
-<div class="caption-card">
-<div class="caption-title">„Chain“</div>
-<div class="caption-meta">Acryl / Airbrush, 2024</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="section">
-<h2>LabeLove – Image to Stencil Text with Slots (macOS)</h2>
-
-<div class="app-image-row">
-<div class="app-image-card">
-<img src="LabeLoveInput.png" alt="LabeLove input text image">
-<div class="image-label">Input</div>
-</div>
-<div class="app-image-card">
-<img src="LabeLoveOutput.png" alt="LabeLove output stencil SVG with automatic slots">
-<div class="image-label">Output with Slots</div>
-</div>
-</div>
-
-<p class="app-text">
-LabeLove converts text images into cuttable stencil SVGs with automatic slots.
-It is designed for lettering, logos and words that need to stay connected when cut.
-The macOS version is available for both Intel Macs and Apple Silicon Macs.
+<p class="art-text">
+    My work combines airbrush painting, acrylics and stencil techniques. All of the stencils used in these works are created from photographs and designed specifically for each individual painting. Looking for better ways to turn photographs into practical, cuttable stencils for use with a plotter eventually led me to develop my own digital stencil tools.
 </p>
 
-<a class="button" href="https://silkemay.gumroad.com/l/naajkw" target="_blank">
-Download for macOS
-</a>
+</section>
+
+
+<!-- ======================================================
+     BIRDIEMAN
+     ====================================================== -->
+
+<section class="section birdieman-section" id="birdieman">
+
+<div class="project-kicker">
+    Original Character · Moving Image
 </div>
 
-<div class="section">
-<h2>SobeLover – Graphic Edge Art from Images (macOS)</h2>
+<h2>BirdieMan</h2>
 
-<div class="app-image-row">
-<div class="app-image-card">
-<img src="SobeLoverInput.png" alt="SobeLover input image">
-<div class="image-label">Input</div>
-</div>
-<div class="app-image-card">
-<img src="SobeLoverOutput.png" alt="SobeLover high contrast graphic edge output">
-<div class="image-label">Output</div>
-</div>
-</div>
+<h3>From Airbrush Character to Moving Image</h3>
 
-<p class="app-text">
-SobeLover creates bold, high-contrast edge visuals from images.
-It is useful for graphic experiments, stencil preparation and strong spray-art style effects.
-The macOS version is available for both Intel Macs and Apple Silicon Macs.
+
+<p class="birdieman-text">
+    BirdieMan started with a simple problem: I wanted a comic character
+    of my own – one that I could freely use in my artwork and stories.
+    So I created one.
 </p>
 
-<a class="button" href="https://silkemay.gumroad.com/l/aydrus" target="_blank">
-Download for macOS
-</a>
-</div>
-
-<div class="section">
-<h2>StenciLover – Cuttable Stencil Designs from Images (macOS)</h2>
-
-<div class="app-image-row">
-<div class="app-image-card">
-<img src="StenciLoverInput.png" alt="StenciLover input image">
-<div class="image-label">Input</div>
-</div>
-<div class="app-image-card">
-<img src="StenciLoverOutput.png" alt="StenciLover cuttable stencil output with registration marks">
-<div class="image-label">Output with Marks</div>
-</div>
-</div>
-
-<p class="app-text">
-StenciLover turns images into bold, simplified stencil designs.
-The goal is not photorealism, but clean, plakative and cuttable stencil artwork for real use.
-The macOS version creates cuttable SVG stencil designs and is available for both Intel Macs and Apple Silicon Macs.
+<p class="birdieman-text">
+    From an airbrush character came a story, from the story came animation
+    and AI-generated video – and one experiment gradually led to the next.
+    BirdieMan has become an ongoing project combining character design,
+    visual storytelling, airbrush art and experimental moving images.
 </p>
 
-<a class="button" href="https://silkemay.gumroad.com/l/tpoocv" target="_blank">
-Download for macOS
-</a>
+
+<div class="video-card">
+
+    <video controls preload="metadata">
+        <source src="BirdieMan.mp4" type="video/mp4">
+
+        Your browser does not support HTML5 video.
+    </video>
+
 </div>
 
-<div class="section">
-<h2>LabeLove – Text Stencil Tool (iOS)</h2>
 
-<div class="app-image-row">
-<div class="app-image-card ios-card">
-<img src="LabeLoveIOS_1.png" alt="LabeLove iOS text stencil app interface">
-</div>
-<div class="app-image-card ios-card">
-<img src="LabeLoveIOS_2.png" alt="LabeLove iOS stencil preview with slots">
-</div>
+<div class="video-meta">
+    BirdieMan – First Story · Experimental short film · 2026
 </div>
 
-<p class="app-text">
-LabeLove for iOS is a mobile text stencil tool. Unlike the macOS version,
-it works with typed text and creates stencil previews with slots.
-The iOS version runs on iPhone and is available on the Apple App Store.
+</section>
+
+
+<!-- ======================================================
+     TOOLS
+     ====================================================== -->
+
+<section class="section" id="tools">
+
+<h2>Tools I Built Along the Way</h2>
+
+<p class="tools-intro">
+    Sometimes making art requires a tool that simply doesn't exist.
+    These small macOS and iOS applications grew out of my own creative
+    workflow – from stencil design and graphic image reduction to
+    sequence-based video work.
 </p>
 
-<a class="button" href="https://apps.apple.com/app/labelove/id6762257557" target="_blank">
-Download for iOS
-</a>
+
+<!-- PANELove -->
+
+
+<div class="project-kicker">
+    Video Tool · macOS
 </div>
 
-<div class="section">
-<h2>StenciLove – Multi-Layer Stencil App (iOS)</h2>
+<h3>PaneLove – Video Sequence Assembly</h3>
 
-<div class="app-image-row">
-<div class="app-image-card ios-card">
-<img src="StenciLoveIOS_1.png" alt="StenciLove iOS image stencil app interface">
-</div>
-<div class="app-image-card ios-card">
-<img src="StenciLoveIOS_2.png" alt="StenciLove iOS multi layer stencil preview">
-</div>
-</div>
-
-<p class="app-text">
-StenciLove for iOS creates bold multi-layer stencil designs from photos.
-It is made for quick mobile stencil drafts and graphic image reduction.
-The iOS version runs on iPhone and is available on the Apple App Store.
-</p>
-
-<a class="button" href="https://apps.apple.com/app/stencilove/id6760261703" target="_blank">
-Download for iOS
-</a>
-</div>
-
-<div class="section">
-<h2>ChromaLove – Color Stencil App (iOS)</h2>
 
 <div class="app-image-row">
-<div class="app-image-card ios-card">
-<img src="ChromaLoveIOS_1.png" alt="ChromaLove iOS color stencil app interface">
+
+    <div class="app-image-card panelove-card">
+
+        <img
+            src="PaneLove01.png"
+            alt="PaneLove macOS video sequence assembly interface with BirdieMan video clips"
+            loading="lazy"
+        >
+
+        <div class="image-label">
+            Frame-precise sequence preview
+        </div>
+
+    </div>
+
+
+    <div class="app-image-card panelove-card">
+
+        <img
+            src="PaneLove02.png"
+            alt="PaneLove macOS interface for arranging trimming and joining video clips"
+            loading="lazy"
+        >
+
+        <div class="image-label">
+            Sequence and trim workspace
+        </div>
+
+    </div>
+
 </div>
-<div class="app-image-card ios-card">
-<img src="ChromaLoveIOS_2.png" alt="ChromaLove iOS color based stencil preview">
-</div>
-</div>
+
 
 <p class="app-text">
-ChromaLove for iOS is a color-based stencil tool for creating bold graphic stencil drafts from images.
-Includes automatic stencil slots and registration marks for real cuttable stencil workflows.
-It focuses on color reduction, clear visual layers and quick mobile experiments for stencil and spray-art workflows.
-The iOS version runs on iPhone and is available on the Apple App Store.
+    PaneLove is a lightweight macOS tool for reviewing, frame-precise
+    trimming, arranging and joining matching video clips into a single MP4.
+    It is designed especially for sequence-based and AI-generated video
+    workflows.
 </p>
 
-<a class="button" href="https://apps.apple.com/de/app/chromalove/id6774994587" target="_blank">
-Download for iOS
-</a>
+<div class="tech-meta">
+    Apple Silicon · Signed &amp; notarized · FFmpeg included · MP4 output
 </div>
+
+
+<a
+    class="button"
+    href="https://silkemay.gumroad.com/l/rlekln"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Download for macOS
+</a>
+
+
+<div class="tool-divider"></div>
+
+
+<!-- STENCIL TOOLS -->
+
+
+<div class="project-kicker">
+    Stencil Tools
+</div>
+
+<h2>Stencil & Graphic Tools</h2>
+
+<p class="tools-intro">
+    Small creative applications for artists working with airbrush,
+    stencil art, plotters and graphic image reduction. The tools help
+    create practical stencil designs, cuttable SVG files, automatic
+    stencil slots and simplified graphic artwork.
+</p>
+
+
+<!-- LABELLOVE MAC -->
+
+
+<h3>LabeLove – Text Stencil Tool for macOS</h3>
+
+<div class="app-image-row">
+
+    <div class="app-image-card">
+        <img
+            src="LabeLoveInput.png"
+            alt="LabeLove macOS text stencil input"
+            loading="lazy"
+        >
+        <div class="image-label">Input</div>
+    </div>
+
+    <div class="app-image-card">
+        <img
+            src="LabeLoveOutput.png"
+            alt="LabeLove cuttable stencil SVG output with automatic slots"
+            loading="lazy"
+        >
+        <div class="image-label">Output with Slots</div>
+    </div>
+
+</div>
+
+
+<p class="app-text">
+    LabeLove converts text images into cuttable stencil SVG files with
+    automatic slots. It is designed for lettering, logos and words that
+    need to stay connected when cut with a plotter or used as an
+    airbrush stencil.
+</p>
+
+
+<a
+    class="button"
+    href="https://silkemay.gumroad.com/l/naajkw"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Download for macOS
+</a>
+
+
+<div class="tool-divider"></div>
+
+
+<!-- SOBELOVER -->
+
+
+<h3>SobeLover – Graphic Edge Art from Images</h3>
+
+<div class="app-image-row">
+
+    <div class="app-image-card">
+        <img
+            src="SobeLoverInput.png"
+            alt="SobeLover source image for graphic edge reduction"
+            loading="lazy"
+        >
+        <div class="image-label">Input</div>
+    </div>
+
+    <div class="app-image-card">
+        <img
+            src="SobeLoverOutput.png"
+            alt="SobeLover high contrast graphic edge artwork output"
+            loading="lazy"
+        >
+        <div class="image-label">Output</div>
+    </div>
+
+</div>
+
+
+<p class="app-text">
+    SobeLover creates bold, high-contrast edge visuals from images.
+    It is made for graphic experiments, stencil preparation and strong
+    spray-art style image reduction.
+</p>
+
+
+<a
+    class="button"
+    href="https://silkemay.gumroad.com/l/aydrus"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Download for macOS
+</a>
+
+
+<div class="tool-divider"></div>
+
+
+<!-- STENCILOVER -->
+
+
+<h3>StenciLover – Cuttable Stencil Designs from Images</h3>
+
+<div class="app-image-row">
+
+    <div class="app-image-card">
+        <img
+            src="StenciLoverInput.png"
+            alt="StenciLover source image for stencil creation"
+            loading="lazy"
+        >
+        <div class="image-label">Input</div>
+    </div>
+
+    <div class="app-image-card">
+        <img
+            src="StenciLoverOutput.png"
+            alt="StenciLover cuttable SVG stencil output with registration marks"
+            loading="lazy"
+        >
+        <div class="image-label">Output with Marks</div>
+    </div>
+
+</div>
+
+
+<p class="app-text">
+    StenciLover turns images into bold, simplified and cuttable stencil
+    designs. It focuses on practical SVG stencil artwork for real-world
+    airbrush, spray-art and plotter workflows.
+</p>
+
+
+<a
+    class="button"
+    href="https://silkemay.gumroad.com/l/tpoocv"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Download for macOS
+</a>
+
+
+<div class="tool-divider"></div>
+
+
+<!-- IOS -->
+
+
+<div class="project-kicker">
+    Mobile Stencil Tools
+</div>
+
+<h2>Stencil Tools for iPhone</h2>
+
+
+<h3>LabeLove – Text Stencil Tool</h3>
+
+<div class="app-image-row">
+
+    <div class="app-image-card ios-card">
+        <img
+            src="LabeLoveIOS_1.png"
+            alt="LabeLove iPhone text stencil app interface"
+            loading="lazy"
+        >
+    </div>
+
+    <div class="app-image-card ios-card">
+        <img
+            src="LabeLoveIOS_2.png"
+            alt="LabeLove iPhone stencil preview with automatic slots"
+            loading="lazy"
+        >
+    </div>
+
+</div>
+
+
+<p class="app-text">
+    LabeLove for iPhone creates stencil previews with automatic slots
+    directly from typed text – useful for quick lettering and stencil
+    design experiments on the go.
+</p>
+
+
+<a
+    class="button"
+    href="https://apps.apple.com/app/labelove/id6762257557"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Download for iOS
+</a>
+
+
+<div class="tool-divider"></div>
+
+
+<h3>StenciLove – Multi-Layer Stencil App</h3>
+
+<div class="app-image-row">
+
+    <div class="app-image-card ios-card">
+        <img
+            src="StenciLoveIOS_1.png"
+            alt="StenciLove iPhone multi layer stencil app interface"
+            loading="lazy"
+        >
+    </div>
+
+    <div class="app-image-card ios-card">
+        <img
+            src="StenciLoveIOS_2.png"
+            alt="StenciLove iPhone multi layer stencil preview"
+            loading="lazy"
+        >
+    </div>
+
+</div>
+
+
+<p class="app-text">
+    StenciLove creates bold multi-layer stencil designs from photos.
+    It is designed for quick mobile stencil drafts and graphic image
+    reduction.
+</p>
+
+
+<a
+    class="button"
+    href="https://apps.apple.com/app/stencilove/id6760261703"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Download for iOS
+</a>
+
+
+<div class="tool-divider"></div>
+
+
+<h3>ChromaLove – Color Stencil App</h3>
+
+<div class="app-image-row">
+
+    <div class="app-image-card ios-card">
+        <img
+            src="ChromaLoveIOS_1.png"
+            alt="ChromaLove iPhone color stencil app interface"
+            loading="lazy"
+        >
+    </div>
+
+    <div class="app-image-card ios-card">
+        <img
+            src="ChromaLoveIOS_2.png"
+            alt="ChromaLove color based stencil preview with stencil slots"
+            loading="lazy"
+        >
+    </div>
+
+</div>
+
+
+<p class="app-text">
+    ChromaLove is a color-based stencil tool for creating bold graphic
+    stencil drafts from images. It combines color reduction with
+    automatic stencil slots and registration markers for practical
+    multi-layer stencil workflows.
+</p>
+
+
+<a
+    class="button"
+    href="https://apps.apple.com/de/app/chromalove/id6774994587"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Download for iOS
+</a>
+
+</section>
+
+
+<!-- ======================================================
+     ABOUT
+     ====================================================== -->
+
+<section class="section" id="about">
+
+<h2>About</h2>
+
+<div class="about-text">
+
+    <p>
+        Silke May is a Berlin-based artist working with airbrush,
+        acrylics and stencil techniques.
+    </p>
+
+    <p>
+        TooLove is the place where these works – and the experiments
+        that grow out of them – come together. Digital tools, animation
+        and small software projects often begin with a practical problem
+        encountered while making art.
+    </p>
+
+    <p>
+        If the tool doesn't exist, making one is sometimes simply part
+        of the process.
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
 
 <div class="footer">
-© 2026 Silke May<br><br>
 
-<a href="#" onclick="toggleImpressum(); return false;">Impressum</a>
+    © 2026 Silke May
+    <br><br>
 
-<div id="impressumBox" class="impressum-box">
+    <a
+        href="#"
+        onclick="toggleImpressum(); return false;"
+    >
+        Impressum
+    </a>
 
-<strong>Impressum</strong><br><br>
 
-Silke May<br>
-Heerstraße 34<br>
-12163 Berlin<br>
-Deutschland<br><br>
+    <div id="impressumBox" class="impressum-box">
 
-silkemay@t-online.de<br><br>
+        <strong>Impressum</strong>
+        <br><br>
 
-This website is intended to present artistic works and digital tools.<br>
-External links lead to platforms such as Gumroad and the Apple App Store.
+        Silke May<br>
+        Herderstraße 34<br>
+        12163 Berlin<br>
+        Germany
+        <br><br>
+
+        silkemay@t-online.de
+        <br><br>
+
+        This website presents artistic works, experimental moving
+        images and digital creative tools.
+        External links lead to platforms such as Gumroad and the
+        Apple App Store.
+
+    </div>
 
 </div>
-</div>
+
 
 </div>
+
 
 <script>
+
 function toggleImpressum() {
+
     var box = document.getElementById("impressumBox");
 
-    if (box.style.display === "none" || box.style.display === "") {
+    if (
+        box.style.display === "none" ||
+        box.style.display === ""
+    ) {
         box.style.display = "block";
-    } else {
+    }
+    else {
         box.style.display = "none";
     }
 }
+
 </script>
+
 
 </body>
 </html>
