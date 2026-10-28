@@ -15,8 +15,8 @@
 <meta property="og:image" content="https://silkemay.github.io/PreviewImage.png">
 <meta property="og:image:alt" content="TooLove – Art, Experiments and Tools">
 <meta name="twitter:card" content="summary_large_image">
+
 <style>
-/* Existing warm, understated TooLove palette and layout retained. */
 html {scroll-behavior:smooth}
 body {font-family:Chicago,Arial,sans-serif;background:radial-gradient(circle at 12% 18%,rgba(0,0,0,.09),transparent 18%),radial-gradient(circle at 82% 12%,rgba(255,255,255,.32),transparent 22%),radial-gradient(circle at 35% 78%,rgba(0,0,0,.055),transparent 24%),radial-gradient(circle at 72% 70%,rgba(0,0,0,.035),transparent 28%),repeating-linear-gradient(45deg,rgba(0,0,0,.018) 1px,transparent 8px),linear-gradient(180deg,rgba(255,255,255,.12),rgba(0,0,0,.035)),#d6d0c4;margin:0;text-align:center;color:#181818}
 .container {max-width:1080px;margin:auto;padding:28px 20px 50px}
@@ -69,7 +69,6 @@ h3 {font-family:Georgia,serif;font-weight:normal;font-size:22px}
 .app-image-card:nth-child(even) {transform:rotate(.35deg)}
 .app-image-card:hover {transform:rotate(0) translateY(-8px) scale(1.03);box-shadow:0 14px 24px rgba(0,0,0,.30),3px 3px 0 #b4aea4}
 .app-image-card img {display:block;max-width:100%;height:auto}
-/* All macOS app previews share the same compact frame and inner spacing. */
 .mac-app-row .app-image-card {width:240px;max-width:100%;box-sizing:border-box;padding:5px}
 .mac-app-row .app-image-card img {width:100%;height:auto;object-fit:contain}
 .panelove-card {max-width:240px}
@@ -87,7 +86,6 @@ h3 {font-family:Georgia,serif;font-weight:normal;font-size:22px}
 .impressum-details summary::-webkit-details-marker {display:none}
 .soundtrack {margin:48px auto 5px;scroll-margin-top:100px}
 .soundtrack h3 {max-width:720px;margin:0 auto 24px;line-height:1.45}
-/* Seven separate covers, using the original single-cover visual language. */
 .track-list {display:flex;flex-wrap:wrap;justify-content:center;gap:22px 20px;max-width:600px;margin:25px auto}
 .track-card {min-width:0;width:125px;max-width:125px;flex:0 0 125px}
 .soundtrack-cover {position:relative;display:block;width:100%;margin:0 auto;padding:0;border:1px solid #8f8a80;background:#000;cursor:pointer;box-shadow:3px 3px 0 #b4aea4,8px 8px 18px rgba(0,0,0,.22);transform:rotate(.25deg);transition:transform .5s ease,box-shadow .5s ease}
@@ -100,84 +98,596 @@ h3 {font-family:Georgia,serif;font-weight:normal;font-size:22px}
 .soundtrack-cover.is-playing .pause-icon {display:inline}
 .track-title {font-family:Georgia,serif;font-size:13px;margin:14px 0 5px}
 .track-error {font-size:12px;color:#555;min-height:1em;margin:5px 0}
-@media(max-width:720px) {.navigation-inner{flex-direction:column;gap:8px}.nav-links{gap:16px;flex-wrap:wrap;justify-content:center}.nav-links a{font-size:14px}h1{font-size:42px}.hero{padding-top:38px}.section{padding:25px 16px;margin:32px 0;scroll-margin-top:125px}.gallery-row{gap:34px}.gallery-item{width:min(280px,90%)}.panelove-card{max-width:92%}.video-card{padding:7px}.track-list{max-width:100%;gap:22px 14px}.track-card{width:110px;max-width:110px;flex-basis:110px}.nav-links{gap:12px}.nav-links a{font-size:13px}.mac-app-row .app-image-card{width:min(240px,100%)}}
+
+@media(max-width:720px) {
+  .navigation-inner {flex-direction:column;gap:8px}
+  .nav-links {gap:12px;flex-wrap:wrap;justify-content:center}
+  .nav-links a {font-size:13px}
+  h1 {font-size:42px}
+  .hero {padding-top:38px}
+  .section {padding:25px 16px;margin:32px 0;scroll-margin-top:125px}
+  .gallery-row {gap:34px}
+  .gallery-item {width:min(280px,90%)}
+  .panelove-card {max-width:92%}
+  .video-card {padding:7px}
+  .track-list {max-width:100%;gap:22px 14px}
+  .track-card {width:110px;max-width:110px;flex-basis:110px}
+  .mac-app-row .app-image-card {width:min(240px,100%)}
+}
+
+.video-gallery {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:28px auto}
+.video-gallery .video-card {margin:0;min-width:0;box-sizing:border-box;width:100%}
+.video-thumbnail {display:block;position:relative;border:0;padding:0;width:100%;background:#111;cursor:pointer;color:white}
+.video-thumbnail img {display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.video-thumbnail .soundtrack-play {pointer-events:none}
+.video-thumbnail:focus-visible,.video-close:focus-visible {outline:3px solid #555;outline-offset:4px}
+.video-modal {box-sizing:border-box;width:min(1100px,96vw);max-width:96vw;max-height:94vh;max-height:94dvh;padding:16px;border:1px solid #8f8a80;background:#f2efe8;color:#181818;box-shadow:0 20px 65px #0008}
+.video-modal::backdrop {background:rgba(0,0,0,.85)}
+.video-modal-header {display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px}
+.video-modal h3 {margin:0;text-align:left}
+.video-close {min-width:44px;min-height:44px;border:1px solid #8f8a80;background:#e9e3d8;color:#181818;font-size:24px;cursor:pointer;flex-shrink:0}
+.video-modal video {display:block;width:100%;max-height:72vh;max-height:72dvh;background:#111}
+.video-error {font-size:14px;margin:10px 0 0}
+
+@media(max-width:720px) {
+  .video-gallery {grid-template-columns:1fr;max-width:440px}
+  .video-modal {padding:10px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .video-thumbnail,.video-gallery .video-card {transition:none}
+}
 </style>
 </head>
+
 <body>
-<nav class="navigation" aria-label="Main navigation"><div class="navigation-inner"><a class="nav-logo" href="#top">TooLove</a><div class="nav-links"><a href="#art">Art</a><a href="#birdieman">BirdieMan</a><a href="#soundtrack">Soundtrack</a><a href="#tools">Tools</a><a href="#about">About</a></div></div></nav>
+<nav class="navigation" aria-label="Main navigation">
+  <div class="navigation-inner">
+    <a class="nav-logo" href="#top">TooLove</a>
+    <div class="nav-links">
+      <a href="#art">Art</a>
+      <a href="#birdieman">BirdieMan</a>
+      <a href="#soundtrack">Soundtrack</a>
+      <a href="#tools">Tools</a>
+      <a href="#about">About</a>
+    </div>
+  </div>
+</nav>
+
 <div class="container" id="top">
-<header class="hero"><h1>TooLove</h1><p class="subtitle">Art · Experiments · Tools</p><p class="artist">by Silke May</p><p class="intro">TooLove is first and foremost about making art. Sometimes the tools I need don't exist – so I build them myself. What begins with airbrush and stencil work can lead to software, moving images, or an entirely new character.</p></header>
-<section class="section" id="art"><h2>Airbrush Art</h2><p class="section-intro">Original airbrush and stencil artwork combining acrylic paint, hand-made and digitally prepared stencils, graphic reduction, layered surfaces and spray techniques.</p><div class="gallery-row">
-<div class="gallery-item"><img src="Achternbusch.jpeg" alt="Achternbusch, original airbrush and stencil artwork by Silke May" loading="lazy"><div class="caption-card"><div class="caption-title">„Achternbusch“</div><div class="caption-meta">AcrylTex / Airbrush, 2026</div></div></div>
-<div class="gallery-item"><img src="Golf.png" alt="Golf, original acrylic airbrush artwork by Silke May" loading="lazy"><div class="caption-card"><div class="caption-title">„Golf“</div><div class="caption-meta">Acryl / Airbrush, 2023</div></div></div>
-<div class="gallery-item"><img src="E.png" alt="E, original acrylic airbrush and stencil artwork by Silke May" loading="lazy"><div class="caption-card"><div class="caption-title">„E“</div><div class="caption-meta">Acryl / Airbrush, 2025</div></div></div>
-<div class="gallery-item"><img src="Foxi.png" alt="Foxi, original acrylic airbrush artwork by Silke May" loading="lazy"><div class="caption-card"><div class="caption-title">„Foxi“</div><div class="caption-meta">Acryl / Airbrush, 2024</div></div></div>
-<div class="gallery-item"><img src="BirdieMan.png" alt="BirdieMan, original character airbrush artwork by Silke May" loading="lazy"><div class="caption-card"><div class="caption-title">„BirdieMan“</div><div class="caption-meta">Acryl / Airbrush, 2026</div></div></div>
-<div class="gallery-item"><img src="Chain.png" alt="Chain, original acrylic airbrush artwork by Silke May" loading="lazy"><div class="caption-card"><div class="caption-title">„Chain“</div><div class="caption-meta">Acryl / Airbrush, 2024</div></div></div>
-<div class="gallery-item"><img src="Me.jpeg" alt="Me, original monochrome airbrush and stencil artwork by Silke May" loading="lazy"><div class="caption-card"><div class="caption-title">„Me“</div><div class="caption-meta">Airbrush, 2024</div></div></div>
-<div class="gallery-item"><img src="Packan.jpeg" alt="Packan, original blue airbrush and stencil artwork by Silke May" loading="lazy"><div class="caption-card"><div class="caption-title">„Packan“</div><div class="caption-meta">Airbrush, 2025</div></div></div>
-<div class="gallery-item"><img src="Debris.jpeg" alt="Debris, original layered airbrush and stencil artwork by Silke May" loading="lazy"><div class="caption-card"><div class="caption-title">„Debris“</div><div class="caption-meta">Airbrush, 2024</div></div></div>
-<div class="gallery-item"><img src="Le Maroc.jpeg" alt="Le Maroc, original airbrush artwork by Silke May" loading="lazy"><div class="caption-card"><div class="caption-title">„Le Maroc“</div><div class="caption-meta">Airbrush, 2024</div></div></div>
-<div class="gallery-item"><img src="BlackHole.jpeg" alt="Information, original airbrush artwork by Silke May" loading="lazy"><div class="caption-card"><div class="caption-title">„Information“</div><div class="caption-meta">Airbrush, 2026</div></div></div>
-</div><p class="art-text">My work combines airbrush painting, acrylics and stencil techniques. All of the stencils used in these works are created from photographs and designed specifically for each individual painting. Looking for better ways to turn photographs into practical, cuttable stencils for use with a plotter eventually led me to develop my own digital stencil tools.</p></section>
-<section class="section birdieman-section" id="birdieman"><div class="project-kicker">Original Character · Moving Image</div><h2>BirdieMan</h2><h3>From Airbrush Character to Moving Image</h3><p class="birdieman-text">BirdieMan started with a simple problem: I wanted a comic character of my own – one that I could freely use in my artwork and stories. So I created one.</p><p class="birdieman-text">From an airbrush character came a story, from the story came animation and AI-generated video – and one experiment gradually led to the next. BirdieMan has become an ongoing project combining character design, visual storytelling, airbrush art and experimental moving images.</p>
-<!-- Existing film preserved. -->
-<div class="video-card"><video controls preload="metadata" playsinline aria-label="BirdieMan – Big Bang"><source src="BirdieManBigBang.mp4" type="video/mp4">Your browser does not support HTML5 video.</video></div><div class="video-meta">BirdieMan – Big Bang · Short film · 2026</div>
-<!-- Replace Film2.mp4 with the actual filename when ready. -->
-<div class="video-card"><video controls preload="metadata" playsinline aria-label="BirdieMan – Demo"><source src="BirdieMan_web.mp4" type="video/mp4">Your browser does not support HTML5 video.</video></div><div class="video-meta">BirdieMan – Demo · Short film · 2026</div>
-<div class="soundtrack" id="soundtrack"><h3>From an airbrush character came a story, from the story came a soundtrack.</h3><div class="track-list" id="trackList">
-<!-- Track names, covers and files can be renamed individually below. -->
-<div class="track-card"><button class="soundtrack-cover" type="button" data-audio="Start.m4a" aria-label="Play Just the Start"><img src="Start.png" alt="Cover for Just the Start" loading="lazy"><span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span></button><p class="track-title">Just the start</p><p class="track-error" aria-live="polite"></p></div>
-<div class="track-card"><button class="soundtrack-cover" type="button" data-audio="Small.m4a" aria-label="Play You're so small"><img src="Small.png" alt="Cover for You are so small" loading="lazy"><span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span></button><p class="track-title">You are so small</p><p class="track-error" aria-live="polite"></p></div>
-<div class="track-card"><button class="soundtrack-cover" type="button" data-audio="Ask.m4a" aria-label="Play Let them ask"><img src="Ask.png" alt="Cover for Let them Ask" loading="lazy"><span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span></button><p class="track-title">Let them ask</p><p class="track-error" aria-live="polite"></p></div>
-<div class="track-card"><button class="soundtrack-cover" type="button" data-audio="Now.m4a" aria-label="Play Maybe it's now"><img src="Now.png" alt="Cover for Maybe it's now" loading="lazy"><span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span></button><p class="track-title">May be it's now</p><p class="track-error" aria-live="polite"></p></div>
-<div class="track-card"><button class="soundtrack-cover" type="button" data-audio="Golflove.m4a" aria-label="Play Golflove"><img src="Golflove.png" alt="Cover for Golflove" loading="lazy"><span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span></button><p class="track-title">Golflove</p><p class="track-error" aria-live="polite"></p></div>
-<div class="track-card"><button class="soundtrack-cover" type="button" data-audio="Raw.m4a" aria-label="Play Raw"><img src="Raw.png" alt="Cover for Raw" loading="lazy"><span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span></button><p class="track-title">Raw</p><p class="track-error" aria-live="polite"></p></div>
-<div class="track-card"><button class="soundtrack-cover" type="button" data-audio="Think.m4a" aria-label="Play Think twice"><img src="Think.png" alt="Cover for Think" loading="lazy"><span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span></button><p class="track-title">Think twice</p><p class="track-error" aria-live="polite"></p></div>
-</div></div></section>
-<section class="section" id="tools"><h2>Tools I Built Along the Way</h2><p class="tools-intro">Sometimes making art requires a tool that simply doesn't exist. These small macOS and iOS applications grew out of my own creative workflow – from stencil design and graphic image reduction to sequence-based video work.</p>
-<div class="project-kicker">Video Tool</div><h3>PaneLove – Video Sequence Assembly</h3><div class="app-image-row mac-app-row"><div class="app-image-card panelove-card"><img src="PaneLove01.png" alt="PaneLove macOS video sequence assembly interface with BirdieMan video clips" loading="lazy"><div class="image-label">Frame-precise sequence preview</div></div><div class="app-image-card panelove-card"><img src="PaneLove02.png" alt="PaneLove macOS interface for arranging, trimming and joining video clips" loading="lazy"><div class="image-label">Sequence and trim workspace</div></div></div><p class="app-text">PaneLove is a lightweight macOS tool for reviewing, frame-precise trimming, arranging and joining matching video clips into a single MP4. It is designed especially for sequence-based and AI-generated video workflows.</p><div class="tech-meta">Apple Silicon · Signed &amp; notarized · FFmpeg included · MP4 output</div><a class="button" href="https://silkemay.gumroad.com/l/rlekln" target="_blank" rel="noopener noreferrer">Download for macOS</a>
-<div class="tool-divider"></div><div class="project-kicker">Stencil Tools</div><h2>Stencil &amp; Graphic Tools</h2><p class="tools-intro">Small creative applications for artists working with airbrush, stencil art, plotters and graphic image reduction. The tools help create practical stencil designs, cuttable SVG files, automatic stencil slots and simplified graphic artwork.</p>
-<h3>LabeLove – Text Stencil Tool for macOS</h3><div class="app-image-row mac-app-row"><div class="app-image-card"><img src="LabeLoveInput.png" alt="LabeLove macOS text stencil input" loading="lazy"><div class="image-label">Input</div></div><div class="app-image-card"><img src="LabeLoveOutput.png" alt="LabeLove cuttable stencil SVG output with automatic slots" loading="lazy"><div class="image-label">Output with Slots</div></div></div><p class="app-text">LabeLove converts text images into cuttable stencil SVG files with automatic slots. It is designed for lettering, logos and words that need to stay connected when cut with a plotter or used as an airbrush stencil.</p><a class="button" href="https://silkemay.gumroad.com/l/naajkw" target="_blank" rel="noopener noreferrer">Download for macOS</a>
-<div class="tool-divider"></div><h3>SobeLover – Graphic Edge Art from Images</h3><div class="app-image-row mac-app-row"><div class="app-image-card"><img src="SobeLoverInput.png" alt="SobeLover source image for graphic edge reduction" loading="lazy"><div class="image-label">Input</div></div><div class="app-image-card"><img src="SobeLoverOutput.png" alt="SobeLover high contrast graphic edge artwork output" loading="lazy"><div class="image-label">Output</div></div></div><p class="app-text">SobeLover creates bold, high-contrast edge visuals from images. It is made for graphic experiments, stencil preparation and strong spray-art style image reduction.</p><a class="button" href="https://silkemay.gumroad.com/l/aydrus" target="_blank" rel="noopener noreferrer">Download for macOS</a>
-<div class="tool-divider"></div><h3>StenciLover – Cuttable Stencil Designs from Images</h3><div class="app-image-row mac-app-row"><div class="app-image-card"><img src="StenciLoverInput.png" alt="StenciLover source image for stencil creation" loading="lazy"><div class="image-label">Input</div></div><div class="app-image-card"><img src="StenciLoverOutput.png" alt="StenciLover cuttable SVG stencil output with registration marks" loading="lazy"><div class="image-label">Output with Marks</div></div></div><p class="app-text">StenciLover turns images into bold, simplified and cuttable stencil designs. It focuses on practical SVG stencil artwork for real-world airbrush, spray-art and plotter workflows.</p><a class="button" href="https://silkemay.gumroad.com/l/tpoocv" target="_blank" rel="noopener noreferrer">Download for macOS</a>
-<div class="tool-divider"></div><div class="project-kicker">Mobile Stencil Tools</div><h2>Stencil Tools for iPhone</h2><h3>LabeLove – Text Stencil Tool</h3><div class="app-image-row"><div class="app-image-card ios-card"><img src="LabeLoveIOS_1.png" alt="LabeLove iPhone text stencil app interface" loading="lazy"></div><div class="app-image-card ios-card"><img src="LabeLoveIOS_2.png" alt="LabeLove iPhone stencil preview with automatic slots" loading="lazy"></div></div><p class="app-text">LabeLove for iPhone creates stencil previews with automatic slots directly from typed text – useful for quick lettering and stencil design experiments on the go.</p><a class="button" href="https://apps.apple.com/app/labelove/id6762257557" target="_blank" rel="noopener noreferrer">Download for iOS</a>
-<div class="tool-divider"></div><h3>StenciLove – Multi-Layer Stencil App</h3><div class="app-image-row"><div class="app-image-card ios-card"><img src="StenciLoveIOS_1.png" alt="StenciLove iPhone multi layer stencil app interface" loading="lazy"></div><div class="app-image-card ios-card"><img src="StenciLoveIOS_2.png" alt="StenciLove iPhone multi layer stencil preview" loading="lazy"></div></div><p class="app-text">StenciLove creates bold multi-layer stencil designs from photos. It is designed for quick mobile stencil drafts and graphic image reduction.</p><a class="button" href="https://apps.apple.com/app/stencilove/id6760261703" target="_blank" rel="noopener noreferrer">Download for iOS</a>
-<div class="tool-divider"></div><h3>ChromaLove – Color Stencil App</h3><div class="app-image-row"><div class="app-image-card ios-card"><img src="ChromaLoveIOS_1.png" alt="ChromaLove iPhone color stencil app interface" loading="lazy"></div><div class="app-image-card ios-card"><img src="ChromaLoveIOS_2.png" alt="ChromaLove color based stencil preview with stencil slots" loading="lazy"></div></div><p class="app-text">ChromaLove is a color-based stencil tool for creating bold graphic stencil drafts from images. It combines color reduction with automatic stencil slots and registration markers for practical multi-layer stencil workflows.</p><a class="button" href="https://apps.apple.com/de/app/chromalove/id6774994587" target="_blank" rel="noopener noreferrer">Download for iOS</a></section>
-<section class="section" id="about"><h2>About</h2><div class="about-text"><p>Silke May is a Berlin-based artist working with airbrush, acrylics and stencil techniques.</p><p>TooLove is the place where these works – and the experiments that grow out of them – come together. Digital tools, animation and small software projects often begin with a practical problem encountered while making art.</p><p>If the tool doesn't exist, making one is sometimes simply part of the process.</p></div></section>
-<div class="footer">© 2026 Silke May<br><br><details class="impressum-details"><summary>Impressum</summary><div id="impressumBox" class="impressum-box"><strong>Impressum</strong><br><br>Silke May<br>Herderstraße 34<br>12163 Berlin<br>Germany<br><br><a href="mailto:silkemay@t-online.de">silkemay@t-online.de</a><br><br>This website presents artistic works, experimental moving images and digital creative tools. External links lead to platforms such as Gumroad and the Apple App Store.</div></details></div>
+<header class="hero">
+  <h1>TooLove</h1>
+  <p class="subtitle">Art · Experiments · Tools</p>
+  <p class="artist">by Silke May</p>
+  <p class="intro">TooLove is first and foremost about making art. Sometimes the tools I need don't exist – so I build them myself. What begins with airbrush and stencil work can lead to software, moving images, or an entirely new character.</p>
+</header>
+
+<section class="section" id="art">
+<h2>Airbrush Art</h2>
+<p class="section-intro">Original airbrush and stencil artwork combining acrylic paint, hand-made and digitally prepared stencils, graphic reduction, layered surfaces and spray techniques.</p>
+
+<div class="gallery-row">
+  <div class="gallery-item">
+    <img src="Achternbusch.jpeg" alt="Achternbusch, original airbrush and stencil artwork by Silke May" loading="lazy">
+    <div class="caption-card">
+      <div class="caption-title">„Achternbusch“</div>
+      <div class="caption-meta">AcrylTex / Airbrush, 2026</div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="Golf.png" alt="Golf, original acrylic airbrush artwork by Silke May" loading="lazy">
+    <div class="caption-card">
+      <div class="caption-title">„Golf“</div>
+      <div class="caption-meta">Acryl / Airbrush, 2023</div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="E.png" alt="E, original acrylic airbrush and stencil artwork by Silke May" loading="lazy">
+    <div class="caption-card">
+      <div class="caption-title">„E“</div>
+      <div class="caption-meta">Acryl / Airbrush, 2025</div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="Foxi.png" alt="Foxi, original acrylic airbrush artwork by Silke May" loading="lazy">
+    <div class="caption-card">
+      <div class="caption-title">„Foxi“</div>
+      <div class="caption-meta">Acryl / Airbrush, 2024</div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="BirdieMan.png" alt="BirdieMan, original character airbrush artwork by Silke May" loading="lazy">
+    <div class="caption-card">
+      <div class="caption-title">„BirdieMan“</div>
+      <div class="caption-meta">Acryl / Airbrush, 2026</div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="Chain.png" alt="Chain, original acrylic airbrush artwork by Silke May" loading="lazy">
+    <div class="caption-card">
+      <div class="caption-title">„Chain“</div>
+      <div class="caption-meta">Acryl / Airbrush, 2024</div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="Me.jpeg" alt="Me, original monochrome airbrush and stencil artwork by Silke May" loading="lazy">
+    <div class="caption-card">
+      <div class="caption-title">„Me“</div>
+      <div class="caption-meta">Airbrush, 2024</div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="Packan.jpeg" alt="Packan, original blue airbrush and stencil artwork by Silke May" loading="lazy">
+    <div class="caption-card">
+      <div class="caption-title">„Packan“</div>
+      <div class="caption-meta">Airbrush, 2025</div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="Debris.jpeg" alt="Debris, original layered airbrush and stencil artwork by Silke May" loading="lazy">
+    <div class="caption-card">
+      <div class="caption-title">„Debris“</div>
+      <div class="caption-meta">Airbrush, 2024</div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="Le Maroc.jpeg" alt="Le Maroc, original airbrush artwork by Silke May" loading="lazy">
+    <div class="caption-card">
+      <div class="caption-title">„Le Maroc“</div>
+      <div class="caption-meta">Airbrush, 2024</div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="BlackHole.jpeg" alt="Information, original airbrush artwork by Silke May" loading="lazy">
+    <div class="caption-card">
+      <div class="caption-title">„Information“</div>
+      <div class="caption-meta">Airbrush, 2026</div>
+    </div>
+  </div>
 </div>
+
+<p class="art-text">My work combines airbrush painting, acrylics and stencil techniques. All of the stencils used in these works are created from photographs and designed specifically for each individual painting. Looking for better ways to turn photographs into practical, cuttable stencils for use with a plotter eventually led me to develop my own digital stencil tools.</p>
+</section>
+
+<section class="section birdieman-section" id="birdieman">
+<div class="project-kicker">Original Character · Moving Image</div>
+<h2>BirdieMan</h2>
+<h3>From Airbrush Character to Moving Image</h3>
+<p class="birdieman-text">BirdieMan started with a simple problem: I wanted a comic character of my own – one that I could freely use in my artwork and stories. So I created one.</p>
+<p class="birdieman-text">From an airbrush character came a story, from the story came animation and AI-generated video – and one experiment gradually led to the next. BirdieMan has become an ongoing project combining character design, visual storytelling, airbrush art and experimental moving images.</p>
+
+<div class="video-gallery" aria-label="BirdieMan films">
+  <div class="video-card">
+    <button type="button" class="video-thumbnail"
+      data-video="BirdieBegins.mp4"
+      data-poster="BirdieMan-Begins-poster.png"
+      data-title="BirdieMan Begins"
+      aria-label="Play BirdieMan Begins"
+      aria-haspopup="dialog" aria-controls="videoModal">
+      <img src="BirdieMan-Begins-poster.png" alt="Still from BirdieMan Begins" loading="lazy">
+      <span class="soundtrack-play" aria-hidden="true">▶</span>
+    </button>
+    <div class="video-meta">BirdieMan Begins · Short film · 2026</div>
+  </div>
+
+  <div class="video-card">
+    <button type="button" class="video-thumbnail"
+      data-video="BerdieBegins2.mp4"
+      data-poster="BirdieMan-Awakes-poster.png"
+      data-title="BirdieMan Awakes"
+      aria-label="Play BirdieMan Awakes"
+      aria-haspopup="dialog" aria-controls="videoModal">
+      <img src="BirdieMan-Awakes-poster.png" alt="Still from BirdieMan Awakes" loading="lazy">
+      <span class="soundtrack-play" aria-hidden="true">▶</span>
+    </button>
+    <div class="video-meta">BirdieMan Awakes · Short film · 2026</div>
+  </div>
+
+  <div class="video-card">
+    <button type="button" class="video-thumbnail"
+      data-video="BirdieManBigBang.mp4"
+      data-poster="BirdieMan-BigBang-poster.png"
+      data-title="BirdieMan Big Bang"
+      aria-label="Play BirdieMan Big Bang"
+      aria-haspopup="dialog" aria-controls="videoModal">
+      <img src="BirdieMan-BigBang-poster.png" alt="Still from BirdieMan Big Bang" loading="lazy">
+      <span class="soundtrack-play" aria-hidden="true">▶</span>
+    </button>
+    <div class="video-meta">BirdieMan Big Bang · Short film · 2026</div>
+  </div>
+</div>
+
+<div class="soundtrack" id="soundtrack">
+<h3>From an airbrush character came a story, from the story came a soundtrack.</h3>
+<div class="track-list" id="trackList">
+
+  <div class="track-card">
+    <button class="soundtrack-cover" type="button" data-audio="Start.m4a" aria-label="Play Just the Start">
+      <img src="Start.png" alt="Cover for Just the Start" loading="lazy">
+      <span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span>
+    </button>
+    <p class="track-title">Just the start</p>
+    <p class="track-error" aria-live="polite"></p>
+  </div>
+
+  <div class="track-card">
+    <button class="soundtrack-cover" type="button" data-audio="Small.m4a" aria-label="Play You're so small">
+      <img src="Small.png" alt="Cover for You are so small" loading="lazy">
+      <span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span>
+    </button>
+    <p class="track-title">You are so small</p>
+    <p class="track-error" aria-live="polite"></p>
+  </div>
+
+  <div class="track-card">
+    <button class="soundtrack-cover" type="button" data-audio="Ask.m4a" aria-label="Play Let them ask">
+      <img src="Ask.png" alt="Cover for Let them Ask" loading="lazy">
+      <span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span>
+    </button>
+    <p class="track-title">Let them ask</p>
+    <p class="track-error" aria-live="polite"></p>
+  </div>
+
+  <div class="track-card">
+    <button class="soundtrack-cover" type="button" data-audio="Now.m4a" aria-label="Play Maybe it's now">
+      <img src="Now.png" alt="Cover for Maybe it's now" loading="lazy">
+      <span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span>
+    </button>
+    <p class="track-title">May be it's now</p>
+    <p class="track-error" aria-live="polite"></p>
+  </div>
+
+  <div class="track-card">
+    <button class="soundtrack-cover" type="button" data-audio="Golflove.m4a" aria-label="Play Golflove">
+      <img src="Golflove.png" alt="Cover for Golflove" loading="lazy">
+      <span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span>
+    </button>
+    <p class="track-title">Golflove</p>
+    <p class="track-error" aria-live="polite"></p>
+  </div>
+
+  <div class="track-card">
+    <button class="soundtrack-cover" type="button" data-audio="Raw.m4a" aria-label="Play Raw">
+      <img src="Raw.png" alt="Cover for Raw" loading="lazy">
+      <span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span>
+    </button>
+    <p class="track-title">Raw</p>
+    <p class="track-error" aria-live="polite"></p>
+  </div>
+
+  <div class="track-card">
+    <button class="soundtrack-cover" type="button" data-audio="Think.m4a" aria-label="Play Think twice">
+      <img src="Think.png" alt="Cover for Think" loading="lazy">
+      <span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span>
+    </button>
+    <p class="track-title">Think twice</p>
+    <p class="track-error" aria-live="polite"></p>
+  </div>
+
+  <div class="track-card">
+    <button class="soundtrack-cover" type="button" data-audio="Ich hab genickt.m4a" aria-label="Play Ich hab genickt">
+      <img src="Ich hab genickt.png" alt="Cover for Ich hab genickt" loading="lazy">
+      <span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span>
+    </button>
+    <p class="track-title">Ich hab genickt</p>
+    <p class="track-error" aria-live="polite"></p>
+  </div>
+
+  <div class="track-card">
+    <button class="soundtrack-cover" type="button" data-audio="Behind the Masks.m4a" aria-label="Play Behind the masks">
+      <img src="Behind the Masks.png" alt="Cover for Behind the masks" loading="lazy">
+      <span class="soundtrack-play" aria-hidden="true"><span class="play-icon">▶</span><span class="pause-icon">Ⅱ</span></span>
+    </button>
+    <p class="track-title">Behind the masks</p>
+    <p class="track-error" aria-live="polite"></p>
+  </div>
+
+</div>
+</div>
+</section>
+
+<section class="section" id="tools">
+<h2>Tools I Built Along the Way</h2>
+<p class="tools-intro">Sometimes making art requires a tool that simply doesn't exist. These small macOS and iOS applications grew out of my own creative workflow – from stencil design and graphic image reduction to sequence-based video work.</p>
+
+<div class="project-kicker">Video Tool</div>
+<h3>PaneLove – Video Sequence Assembly</h3>
+<div class="app-image-row mac-app-row">
+  <div class="app-image-card panelove-card">
+    <img src="PaneLove01.png" alt="PaneLove macOS video sequence assembly interface with BirdieMan video clips" loading="lazy">
+    <div class="image-label">Frame-precise sequence preview</div>
+  </div>
+  <div class="app-image-card panelove-card">
+    <img src="PaneLove02.png" alt="PaneLove macOS interface for arranging, trimming and joining video clips" loading="lazy">
+    <div class="image-label">Sequence and trim workspace</div>
+  </div>
+</div>
+<p class="app-text">PaneLove is a lightweight macOS tool for reviewing, frame-precise trimming, arranging and joining matching video clips into a single MP4. It is designed especially for sequence-based and AI-generated video workflows.</p>
+<div class="tech-meta">Apple Silicon · Signed &amp; notarized · FFmpeg included · MP4 output</div>
+<a class="button" href="https://silkemay.gumroad.com/l/rlekln" target="_blank" rel="noopener noreferrer">Download for macOS</a>
+
+<div class="tool-divider"></div>
+<div class="project-kicker">Stencil Tools</div>
+<h2>Stencil &amp; Graphic Tools</h2>
+<p class="tools-intro">Small creative applications for artists working with airbrush, stencil art, plotters and graphic image reduction. The tools help create practical stencil designs, cuttable SVG files, automatic stencil slots and simplified graphic artwork.</p>
+
+<h3>LabeLove – Text Stencil Tool for macOS</h3>
+<div class="app-image-row mac-app-row">
+  <div class="app-image-card">
+    <img src="LabeLoveInput.png" alt="LabeLove macOS text stencil input" loading="lazy">
+    <div class="image-label">Input</div>
+  </div>
+  <div class="app-image-card">
+    <img src="LabeLoveOutput.png" alt="LabeLove cuttable stencil SVG output with automatic slots" loading="lazy">
+    <div class="image-label">Output with Slots</div>
+  </div>
+</div>
+<p class="app-text">LabeLove converts text images into cuttable stencil SVG files with automatic slots. It is designed for lettering, logos and words that need to stay connected when cut with a plotter or used as an airbrush stencil.</p>
+<a class="button" href="https://silkemay.gumroad.com/l/naajkw" target="_blank" rel="noopener noreferrer">Download for macOS</a>
+
+<div class="tool-divider"></div>
+<h3>SobeLover – Graphic Edge Art from Images</h3>
+<div class="app-image-row mac-app-row">
+  <div class="app-image-card">
+    <img src="SobeLoverInput.png" alt="SobeLover source image for graphic edge reduction" loading="lazy">
+    <div class="image-label">Input</div>
+  </div>
+  <div class="app-image-card">
+    <img src="SobeLoverOutput.png" alt="SobeLover high contrast graphic edge artwork output" loading="lazy">
+    <div class="image-label">Output</div>
+  </div>
+</div>
+<p class="app-text">SobeLover creates bold, high-contrast edge visuals from images. It is made for graphic experiments, stencil preparation and strong spray-art style image reduction.</p>
+<a class="button" href="https://silkemay.gumroad.com/l/aydrus" target="_blank" rel="noopener noreferrer">Download for macOS</a>
+
+<div class="tool-divider"></div>
+<h3>StenciLover – Cuttable Stencil Designs from Images</h3>
+<div class="app-image-row mac-app-row">
+  <div class="app-image-card">
+    <img src="StenciLoverInput.png" alt="StenciLover source image for stencil creation" loading="lazy">
+    <div class="image-label">Input</div>
+  </div>
+  <div class="app-image-card">
+    <img src="StenciLoverOutput.png" alt="StenciLover cuttable SVG stencil output with registration marks" loading="lazy">
+    <div class="image-label">Output with Marks</div>
+  </div>
+</div>
+<p class="app-text">StenciLover turns images into bold, simplified and cuttable stencil designs. It focuses on practical SVG stencil artwork for real-world airbrush, spray-art and plotter workflows.</p>
+<a class="button" href="https://silkemay.gumroad.com/l/tpoocv" target="_blank" rel="noopener noreferrer">Download for macOS</a>
+
+<div class="tool-divider"></div>
+<div class="project-kicker">Mobile Stencil Tools</div>
+<h2>Stencil Tools for iPhone</h2>
+
+<h3>LabeLove – Text Stencil Tool</h3>
+<div class="app-image-row">
+  <div class="app-image-card ios-card">
+    <img src="LabeLoveIOS_1.png" alt="LabeLove iPhone text stencil app interface" loading="lazy">
+  </div>
+  <div class="app-image-card ios-card">
+    <img src="LabeLoveIOS_2.png" alt="LabeLove iPhone stencil preview with automatic slots" loading="lazy">
+  </div>
+</div>
+<p class="app-text">LabeLove for iPhone creates stencil previews with automatic slots directly from typed text – useful for quick lettering and stencil design experiments on the go.</p>
+<a class="button" href="https://apps.apple.com/app/labelove/id6762257557" target="_blank" rel="noopener noreferrer">Download for iOS</a>
+
+<div class="tool-divider"></div>
+<h3>StenciLove – Multi-Layer Stencil App</h3>
+<div class="app-image-row">
+  <div class="app-image-card ios-card">
+    <img src="StenciLoveIOS_1.png" alt="StenciLove iPhone multi layer stencil app interface" loading="lazy">
+  </div>
+  <div class="app-image-card ios-card">
+    <img src="StenciLoveIOS_2.png" alt="StenciLove iPhone multi layer stencil preview" loading="lazy">
+  </div>
+</div>
+<p class="app-text">StenciLove creates bold multi-layer stencil designs from photos. It is designed for quick mobile stencil drafts and graphic image reduction.</p>
+<a class="button" href="https://apps.apple.com/app/stencilove/id6760261703" target="_blank" rel="noopener noreferrer">Download for iOS</a>
+
+<div class="tool-divider"></div>
+<h3>ChromaLove – Color Stencil App</h3>
+<div class="app-image-row">
+  <div class="app-image-card ios-card">
+    <img src="ChromaLoveIOS_1.png" alt="ChromaLove iPhone color stencil app interface" loading="lazy">
+  </div>
+  <div class="app-image-card ios-card">
+    <img src="ChromaLoveIOS_2.png" alt="ChromaLove color based stencil preview with stencil slots" loading="lazy">
+  </div>
+</div>
+<p class="app-text">ChromaLove is a color-based stencil tool for creating bold graphic stencil drafts from images. It combines color reduction with automatic stencil slots and registration markers for practical multi-layer stencil workflows.</p>
+<a class="button" href="https://apps.apple.com/de/app/chromalove/id6774994587" target="_blank" rel="noopener noreferrer">Download for iOS</a>
+</section>
+
+<section class="section" id="about">
+<h2>About</h2>
+<div class="about-text">
+  <p>Silke May is a Berlin-based artist working with airbrush, acrylics and stencil techniques.</p>
+  <p>TooLove is the place where these works – and the experiments that grow out of them – come together. Digital tools, animation and small software projects often begin with a practical problem encountered while making art.</p>
+  <p>If the tool doesn't exist, making one is sometimes simply part of the process.</p>
+</div>
+</section>
+
+<div class="footer">
+© 2026 Silke May<br><br>
+<details class="impressum-details">
+  <summary>Impressum</summary>
+  <div id="impressumBox" class="impressum-box">
+    <strong>Impressum</strong><br><br>
+    Silke May<br>
+    Herderstraße 34<br>
+    12163 Berlin<br>
+    Germany<br><br>
+    <a href="mailto:silkemay@t-online.de">silkemay@t-online.de</a><br><br>
+    This website presents artistic works, experimental moving images and digital creative tools. External links lead to platforms such as Gumroad and the Apple App Store.
+  </div>
+</details>
+</div>
+</div>
+
+<dialog class="video-modal" id="videoModal" aria-labelledby="videoTitle">
+  <div class="video-modal-header">
+    <h3 id="videoTitle">BirdieMan</h3>
+    <button type="button" class="video-close" aria-label="Close video" autofocus>×</button>
+  </div>
+  <video id="modalVideo" controls playsinline preload="none" aria-labelledby="videoTitle">
+    Your browser does not support HTML5 video.
+  </video>
+  <p class="video-error" id="videoError" role="status"></p>
+</dialog>
+
 <script>
 'use strict';
-const videos = [...document.querySelectorAll('.video-card video')];
+
+const modal = document.getElementById('videoModal');
+const modalVideo = document.getElementById('modalVideo');
+const videos = [modalVideo];
+const videoError = document.getElementById('videoError');
+let opener = null;
+let previousOverflow = '';
+let playbackRequest = 0;
+
+const stopMedia = () => {
+  audioPlayers.forEach(audio => audio.pause());
+  videos.forEach(video => video.pause());
+};
+
+document.querySelectorAll('.video-thumbnail').forEach(button => {
+  button.addEventListener('click', async () => {
+    const request = ++playbackRequest;
+    stopMedia();
+    opener = button;
+    document.getElementById('videoTitle').textContent = button.dataset.title;
+    videoError.textContent = '';
+    modalVideo.poster = button.dataset.poster;
+    modalVideo.src = button.dataset.video;
+    previousOverflow = document.body.style.overflow;
+    modal.showModal();
+    document.body.style.overflow = 'hidden';
+
+    try {
+      await modalVideo.play();
+    } catch (error) {
+      if (modal.open && request === playbackRequest && error.name !== 'AbortError') {
+        videoError.textContent = 'Press Play to start the film. If it does not load, check the video file.';
+      }
+    }
+  });
+});
+
+modal.querySelector('.video-close').addEventListener('click', () => {
+  modal.close();
+});
+
+let backdropStart = false;
+
+const outside = event => {
+  const r = modal.getBoundingClientRect();
+  return event.clientX < r.left ||
+    event.clientX > r.right ||
+    event.clientY < r.top ||
+    event.clientY > r.bottom;
+};
+
+modal.addEventListener('pointerdown', event => {
+  backdropStart = event.target === modal && outside(event);
+});
+
+modal.addEventListener('click', event => {
+  if (backdropStart && event.target === modal && outside(event)) {
+    modal.close();
+  }
+  backdropStart = false;
+});
+
+modal.addEventListener('close', () => {
+  ++playbackRequest;
+  modalVideo.pause();
+  modalVideo.removeAttribute('src');
+  modalVideo.load();
+  document.body.style.overflow = previousOverflow;
+  if (opener) opener.focus();
+});
+
+modalVideo.addEventListener('error', () => {
+  if (modal.open && modalVideo.hasAttribute('src')) {
+    videoError.textContent = 'Video file unavailable. Please check the filename.';
+  }
+});
+
 const trackButtons = [...document.querySelectorAll('.soundtrack-cover')];
+
 const audioPlayers = trackButtons.map(button => {
   const audio = new Audio(button.dataset.audio);
   audio.preload = 'none';
-  const title = button.closest('.track-card').querySelector('.track-title').textContent.trim();
-  const error = button.closest('.track-card').querySelector('.track-error');
+
+  const card = button.closest('.track-card');
+  const title = card.querySelector('.track-title').textContent.trim();
+  const error = card.querySelector('.track-error');
+
   const update = () => {
     const playing = !audio.paused;
     button.classList.toggle('is-playing', playing);
+    button.setAttribute('aria-pressed', String(playing));
     button.setAttribute('aria-label', `${playing ? 'Pause' : 'Play'} ${title}`);
   };
-  audio.addEventListener('play', update);
+
+  button.setAttribute('aria-pressed', 'false');
+
+  audio.addEventListener('play', () => {
+    audioPlayers.forEach(other => {
+      if (other !== audio) other.pause();
+    });
+    videos.forEach(video => video.pause());
+    update();
+  });
+
   audio.addEventListener('pause', update);
   audio.addEventListener('ended', update);
-  audio.addEventListener('error', () => { error.textContent = 'Audio file unavailable'; update(); });
+
+  audio.addEventListener('error', () => {
+    error.textContent = 'Audio file unavailable';
+    update();
+  });
+
   button.addEventListener('click', async () => {
-    if (!audio.paused) { audio.pause(); return; }
-    audioPlayers.forEach(other => { if (other !== audio) other.pause(); });
+    if (!audio.paused) {
+      audio.pause();
+      return;
+    }
+
+    audioPlayers.forEach(other => {
+      if (other !== audio) other.pause();
+    });
     videos.forEach(video => video.pause());
     error.textContent = '';
-    try { await audio.play(); } catch (_) { error.textContent = 'Audio could not be played'; }
+
+    try {
+      await audio.play();
+    } catch (_) {
+      error.textContent = 'Audio could not be played';
+    }
   });
+
   return audio;
 });
-videos.forEach(video => video.addEventListener('play', () => {
-  audioPlayers.forEach(audio => audio.pause());
-  videos.forEach(other => { if (other !== video) other.pause(); });
-}));
+
+videos.forEach(video => {
+  video.addEventListener('play', () => {
+    audioPlayers.forEach(audio => audio.pause());
+    videos.forEach(other => {
+      if (other !== video) other.pause();
+    });
+  });
+});
 </script>
 </body>
 </html>
